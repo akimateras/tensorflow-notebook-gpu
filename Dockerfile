@@ -1,9 +1,10 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 
-# Ubuntu 18.04 (bionic) from 2018-05-26
-# https://github.com/docker-library/official-images/commit/aac6a45b9eb2bffb8102353c350d341a410fb169
-ARG BASE_CONTAINER=ubuntu:bionic-20180526@sha256:c8c275751219dadad8fa56b3ac41ca6cb22219ff117ca98fe82b42f24e1ba64e
+# nvidia/cuda:9.0-devel-ubuntu16.04
+# https://gitlab.com/nvidia/cuda/blob/ubuntu16.04/9.0/devel/cudnn7/Dockerfile
+# Copyright (c) 2017, NVIDIA CORPORATION. All rights reserved.
+ARG BASE_CONTAINER=nvidia/cuda:9.0-devel-ubuntu16.04
 FROM $BASE_CONTAINER
 
 ARG NB_USER="jovyan"
