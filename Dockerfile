@@ -118,11 +118,6 @@ COPY start-singleuser.sh /usr/local/bin/
 COPY jupyter_notebook_config.py /etc/jupyter/
 RUN fix-permissions /etc/jupyter/
 
-# Switch back to jovyan to avoid accidental container runs as root
-USER $NB_UID
-
-USER root
-
 # Install all OS dependencies for fully functional notebook server
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     build-essential \
@@ -147,11 +142,6 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     nano \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# Switch back to jovyan to avoid accidental container runs as root
-USER $NB_UID
-
-USER root
 
 # ffmpeg for matplotlib anim
 RUN apt-get update && \
@@ -220,8 +210,6 @@ RUN cd /tmp && \
 ENV XDG_CACHE_HOME /home/$NB_USER/.cache/
 RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
     fix-permissions /home/$NB_USER
-
-USER $NB_UID
 
 # Install Tensorflow
 RUN conda install --quiet --yes \
