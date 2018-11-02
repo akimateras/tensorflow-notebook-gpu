@@ -1,10 +1,10 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 
-# nvidia/cuda:9.0-devel-ubuntu16.04
-# https://gitlab.com/nvidia/cuda/blob/ubuntu16.04/9.0/devel/cudnn7/Dockerfile
-# Copyright (c) 2017, NVIDIA CORPORATION. All rights reserved.
-ARG BASE_CONTAINER=nvidia/cuda:9.0-devel-ubuntu16.04
+# nvidia/cuda:9.2-cudnn7-devel-ubuntu16.04
+#   Copyright (c) 2017, NVIDIA CORPORATION. All rights reserved.
+#   https://gitlab.com/nvidia/cuda/blob/ubuntu16.04/9.2/devel/cudnn7/Dockerfile
+ARG BASE_CONTAINER=nvidia/cuda:9.2-cudnn7-devel-ubuntu16.04
 FROM $BASE_CONTAINER
 
 ARG NB_USER="jovyan"
